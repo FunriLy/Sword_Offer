@@ -38,7 +38,7 @@ public class Test09 {
     // todo:时间复杂度为O(logn)的算法
 
     public static void main(String[] args) {
-        // 0,1,1,2,3,5,8,13……
+        // 斐波那契数列 : 0,1,1,2,3,5,8,13……
         System.out.println(fibonacci(5) == 5);
     }
 }
