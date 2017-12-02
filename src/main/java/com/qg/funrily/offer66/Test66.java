@@ -47,9 +47,9 @@ public class Test66 {
      * @param matrix 输入矩阵
      * @param rows 矩阵行数
      * @param cols 矩阵列数
-     * @param row 要搜索的字符串
+     * @param row 当前处理列号
      * @param col 当前处理行号
-     * @param str 当前处理列号
+     * @param str 要搜索的字符串
      * @param pathLength 已经处理的str中字符个数
      * @param visited 访问标记数组
      * @return 若找到返回true，否则返回false
