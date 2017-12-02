@@ -1,7 +1,7 @@
 package com.qg.funrily.offer29;
 
 /**
- * 面试题29：数组中出现次数超过一次的数字
+ * 面试题29：数组中出现次数超过一半的数字
  * @author FunriLy
  * Created by FunriLy on 2017/11/26.
  * From small beginnings comes great things.
@@ -86,8 +86,9 @@ public class Test29 {
     }
 
     /**
-     * 找到数组中出现次数超过一次的数字
+     * 找到数组中出现次数超过一半的数字
      * 基于partition函数的 O(n) 算法
+     * 排序后根据索引缩小搜索范围
      * @param number 给定数组
      * @return 找到的结果数字
      */
@@ -118,6 +119,12 @@ public class Test29 {
         return result;
     }
 
+    /**
+     * 找到数组中出现次数超过一半的数字
+     * 基于数组特点的 O(n) 算法
+     * @param number 给定数组
+     * @return 找到的结果数字
+     */
     private static int moreThanHalfNum2(int[] number) {
         if (checkInvalidArray(number)) {
             return 0;
@@ -125,6 +132,14 @@ public class Test29 {
 
         int result = number[0];
         int count = 0;
+
+        /*
+        因为所求数出现次数超过数组一半。
+        我们按照最坏情况来看，目标每一次出现count++后，会有一个混淆数字出现count--，最后count>=0。
+        所以，在目标存在的前提下，统计出现最频繁的数就是我们需要找到的目标。
+        但也可能出现目标不存在的情况，所以还要经过一层检查。
+         */
+
         for (int i=1; i<number.length; i++) {
             if (count == 0){
                 result = number[i];
@@ -151,9 +166,9 @@ public class Test29 {
         System.out.println("");
 
         System.out.println("=====基于数组特点的 O(n) 算法=====");
-        int result3 = moreThanHalfNum1(number1);
+        int result3 = moreThanHalfNum2(number1);
         System.out.println("输入是否合法：" + !inputInvalid + ", 结果为：" + result3);
-        int result4 = moreThanHalfNum1(null);
+        int result4 = moreThanHalfNum2(null);
         System.out.println("输入是否合法：" + !inputInvalid + ", 结果为：" + result4);
     }
 }
