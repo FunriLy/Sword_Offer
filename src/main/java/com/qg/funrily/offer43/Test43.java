@@ -111,7 +111,6 @@ public class Test43 {
                     probabilities[1 - flag][i] += probabilities[flag][i - j];
                 }
             }
-
             // 转换数组
             flag = 1-flag;
         }
